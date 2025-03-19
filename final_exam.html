@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Exam Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #countdown {
+            font-size: 2em;
+            font-weight: bold;
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function startCountdown(duration) {
+            let timer = duration, minutes, seconds;
+            let countdownElement = document.getElementById('countdown');
+            
+            let interval = setInterval(function () {
+                minutes = Math.floor(timer / 60);
+                seconds = timer % 60;
+                
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+                countdownElement.textContent = minutes + ":" + seconds;
+                
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    countdownElement.textContent = "Time's Up!";
+                }
+            }, 1000);
+        }
+        
+        window.onload = function () {
+            startCountdown(110 * 60);
+        };
+    </script>
+</head>
+<body>
+    <h1>Final Exam: CBEE 212 Energy Balance</h1>
+    <p>Your CBEE 212 Energy Balance course will conclude in 110 minutes. I appreciate your effort and engagement throughout the term. Best wishes in your academic and professional pursuits—may our paths cross again in the future.</p>
+    <div id="countdown">110:00</div>
+</body>
+</html>
